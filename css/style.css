@@ -8,9 +8,15 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;  /* usuwa pasek na dole ekranu */
+}
 /*
 font-family: 'Nunito Sans', sans-serif;
 font-family: 'Open Sans', sans-serif;
+ */
+
+/* GENERIC STYLES BELOW
  */
 
 .container {
@@ -18,276 +24,504 @@ font-family: 'Open Sans', sans-serif;
     margin: 0 auto;
 }
 
-body {
+.text__style {
+    color: #ffffff;
     font-family: 'Nunito Sans', sans-serif;
-    background: white;
-    width: 100vw;
-    box-sizing: border-box;
-}
-
-.hero {
-    background-image: url("../images/Image.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100vw;
-    /*height: 100vh;*/
-    height: calc(100vh - 27.5px);
-}
-
-
-.hero::after {
-    content: "";
-    background: rgba(0, 0, 0, 0.3);
-    width: 100vw;
-    /*height: 100vh;*/
-    height: calc(100vh - 27.5px);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-/*
-POCZATEK NAV BAR
-POCZATEK NAV BAR
- */
-
-
-.hero .container {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /*padding-top: 15px;*/
-}
-
-.header, .title  {
-    position: relative;
-    z-index: 99;
-}
-
-.header {
-    height: 85px;
-    color: white;
-    border-bottom: 3px solid #FFFFFF33;
-}
-
-
-.logo {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    font-size: 35px;
-    font-weight: 800;
-}
-
-.logo span {
-    color: var(--main-color);
-    padding: 0 6px;
-}
-
-
-
-.nav {
-    height: 100%;
-}
-
-.nav__list {
-    height: 100%;
-    list-style: none;
-    display: flex;
-    align-items: center;
-
-}
-
-.nav__list li {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.nav__btn {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
+    font-size: 14px;
     text-transform: uppercase;
-    color: white;
-    padding: 0 40px;
+    text-decoration: none;
 }
 
-.nav__btn:hover {
-    background: rgba(255, 255, 255,0.5);
-    cursor: pointer;
-}
-/*
-KONIEC NAV BAR
-KONIEC NAV BAR
-*/
+/*BUTTONS*/
 
-/*
-GLOWNY TYTUL
-GLOWNY TYTUL
- */
-
-.title {
-    height: calc(100vh - 88px);
+.btn {
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: bold;
+    border-radius: 40px;
+    background: var(--main-color);
+    padding: 11px 29px 10px;
+    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3);
+    display: inline-block;
+    text-align: center;
 }
 
-.title .container {
-    height: 100%;
+.btn__secondary {
+    color: var(--main-color);
+    background: white;
+}
+
+/*MAIN SECTIONS TITLE*/
+
+.main__sections__title{
+    width: 100%;
+    line-height: 47px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: white;
-}
-
-.title_top {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.title_top h1 {
-    font-size: 90px;
-    font-weight: 900;
-
-}
-
-.title_top p {
-    font-size: 16px;
+.main__sections__title .text__style {
+    color: black;
+    margin: 0 10px;
+    font-size: 35px;
     font-weight: bold;
-    text-align: center;
-    margin-bottom: 54px;
 }
 
-/*
-BUTTONS
-BUTTONS
+.title__side__lines {
+    width: 50px;
+    height: 3px;
+    background: var(--main-color);
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(255, 0, 0, 0.3);
+}
+
+/* GENERIC STYLES ABOVE
  */
 
-.btn {
-    padding: 22px 55px;
-    margin: 0 12.5px;
-    border-radius: 40px;
-    box-shadow: 0px 3px 6px #FF00004D;
-    font-size: 16px;
+/*BACKGROUND FOR <div class="hero">
+ */
+
+.hero {
+    width: 100vw;
+    height: calc(100vh - 28px);
+    background-image: url("../images/Image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.hero:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 28px);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* HEADER
+ */
+
+.additional__header__style {
+    width: 100vw;
+    height: 85px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    /* dzięki temu nie muszę używać z-index by "wypchnąć" concent strony ponad nakładkę hero:before.  czy to daltego, że jest następny w DOM? czy dlatego, że position:relative nadaje wyższy z-index i jest rodzicem dla całej reszty? */
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.header {
+    max-width: 100%;
+    height: 87px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logo__img {
+    padding: 27px 10px 28px 0;
+}
+
+.logo__heading {
+    font-size: 35px;
     font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
+    line-height: 47px;
 }
 
-.primary {
-    background: var(--main-color);
-    color: white;
-}
-
-.secondary {
-    background: white;
+.logo__heading span {
+    padding-right: 5px;
     color: var(--main-color);
 }
 
-/*
-ARROW IMG BUTTON
-ARROW IMG BUTTON
- */
-
-.img__bottom {
-    background: red;
-    padding: 17px;
-    border-radius: 50%;
-    box-shadow: 0px 3px 6px #FF00004D;
-    /*transform: translate(0px, 25px);*/
+.nav__btn {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 33px 40px;
+    font-weight: bold;
 }
 
-/*
-BLOG
-BLOG
- */
-
-/*.main,*/
-/*.main__blog {*/
-/*    width: 100vw;*/
-/*}*/
-
-
-.main,
-.main .container,
-.main__blog,
-{
-    height: 100vh;
+.nav__btn:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.main__blog .container {
+/* TITLE PAGE
+ */
+
+.title__page {
+    height: calc(100vh - 87px - 56px);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    /*margin-top: 91px;*/
+    overflow: hidden;
 }
 
-.main__blog__title {
-    display: inline-block;
+.title__page h1 {
+    font-size: 90px;
+    font-weight: 900;
+    line-height: 90px;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
+    padding-bottom: 10px;
+}
+
+.title__page p {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
     text-align: center;
-    font-size: 35px;
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 47px;
-    color: black;
-    padding: 0 60px;
-    margin: 91px 0 35px 0;
+}
+
+.title__page__btns .btn__secondary {
+    padding: 22px 55px;
+    margin-left: 12.5px;
+
+}
+
+.title__page__btns .btn__primary {
+    padding: 22px 55px;
+    margin-right: 12.5px;
+}
+
+.title__page__btns {
+    margin-top: 54px;
 }
 
 
-.main__blog__articles {
+.icon__arrow_img {
+    padding: 17px;
+    background: var(--main-color);
+    border-radius: 50%;
+}
+
+.icon__arrow {
     display: flex;
-    justify-content: space-evenly;
-    gap: 16px;
-    height: 100%;
+    justify-content: center;
+}
+
+/*BLOG
+ */
+.blog .container {
+    padding-top: 91px;
+    padding-bottom: 100px;
+}
+
+/*BLOG TITLE
+ */
+
+.blog .main__sections__title {
+    margin-bottom: 35px;
+}
+
+.blog__title {
+}
+
+/*BLOG ARTICLES
+*/
+
+.blog__articles {
+    width: 100%;
+    display: flex;
 }
 
 .blog__article {
-    height: 100%;
     width: 33%;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    margin: 0 16px;
 }
 
-.blog__article img {
-    max-width: 100%;
+.blog__article__img {
+    width: 100%;
+    margin-bottom: 25px;
 }
 
-.blog__article__title {
-    margin-top: 25px;
+.blog__articles .text__style {
+    color: rgba(106, 106, 106, 1);
+}
+
+.blog__article h3 {
+    font-weight: 400;
     font-size: 19px;
-    font-weight: normal;
-    color: #6A6A6A;
+    line-height: 26px;
 }
 
-.blog__article__p {
-    margin: 15px 0 0px;
-    font-family:  'Open Sans', sans-serif;
+.blog__article p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     font-size: 14px;
     line-height: 19px;
-    color: #6A6A6A;
+    margin: 15px 0;
+    text-transform: initial;
 }
 
-.blog_btn {
-    display: inline-block;
-    margin: 15px 0 100px 0;
-    /*margin: 0;*/
-    font-size: 14px;
-    padding: 11px 29px 10px;
+.blog__article .btn {
+    color: white;
+    /*margin-bottom: 110px;*/
 }
 
-/*
-SERVICE
-SERVICE
+/*SERVICE
  */
 
-.main__service__background {
-    background: mediumvioletred;
-    height: 1000px; /* REMEMBER TO ADD HIGHT OR TO SET IT ONE WAY OR ANOTHER */
+.service .container {
+    padding-top: 60px;   /* moves title down*/
+    padding-bottom: 100px; /* moves buttons up*/
+}
+
+/*SERVICE BACKGROUND
+ */
+
+.service {
+    background: rgba(40, 39, 44, 1);
+    width: 100vw;
+}
+
+/*SERVICE TITLE
+ */
+
+h2.service__title.text__style {
+    color: white;
+}
+
+.service .main__sections__title {
+    margin: 0 0 75px 0;
+}
+
+/*SERVICE ARTICLES
+ */
+
+.service__articles {
+    width: 100%;
+    display: flex;
+}
+
+.service__article {
+    width: 25%;
+    margin: 0 22.5px;
+}
+
+.service__article__img {
+    width: 100%;
+    border-radius: 85px;
+    margin-bottom: 15px;
+}
+
+.service__article h3 {
+    font-size: 18px; /* 18px zamiast 19px żeby się mieściło w lini */
+    line-height: 26px;
+    font-weight: 400;
+}
+
+.service__article p {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 19px;
+    text-transform: initial;
+    color: rgba(178, 178, 178, 1);
+    margin: 15px 0;
+}
+
+.service__article .btn {
+    line-height: 19px;
+    font-size: 14px;
+    /*padding: 11px 29px 10px;*/
+}
+
+/*CONTACT
+ */
+
+.contact .container {
+    padding-top: 65px; /* moves title down*/
+    padding-bottom: 65px; /* moves buttons up*/
+}
+/*CONTACT TITLE
+ */
+
+.contact__title {
+}
+
+.contact .main__sections__title {
+    margin-bottom: 35px;
+}
+
+/*CONTACT FORM
+ */
+
+.contact__form {
+    width: 100%;
+    display: flex;
+}
+
+
+.contact__form__img, .contact__form__inputs {
+    width: 50%;
+    margin: 0 8px;
+}
+
+/*FORM INPUTS
+ */
+
+.contact__form__inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+/*.input__name,*/
+/*.input__email,*/
+/*.input__textarea,*/
+/*.input__checkbox {*/
+/*    width: 100%;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+.input {
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input__name,
+.input__email {
+    height: 38px;
+}
+
+.input__checkbox .text__style {
+
+    color: rgba(178, 178, 178, 1);
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 14px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.input__checkbox {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+::placeholder {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    padding-left: 12px;
+    color: rgba(178, 178, 178, 1);
+}
+
+.input__name:focus,
+.input__email:focus,
+.input__textarea:focus,
+.input__checkbox__box:focus ~ .styled__checkbox {
+    box-shadow: 0 1px 6px rgba(255, 0, 0, 0.3);
+    border: 1px solid rgba(255, 0, 0, 1);
+    border-radius: 8px;
+}
+
+/*CHECKBOX STYLING
+ */
+.visualy__hiden {
+    position: absolute;
+    left: -100vw;
+    /*display: none;*/ /*nie działa :focus*/
+}
+
+.styled__checkbox {
+    min-height: 20px;
+    max-height: 20px;
+    min-width: 20px;
+    max-width: 20px;
+    /*tak ustawiona wielkość zabezpiecza przed "zgniataniem" ramki w szerkości gdy parent ma display:flex*/
+    padding: 6px 5px;
+    border-radius: 8px;
+    border: 1px solid rgba(209, 209, 209, 1);
+}
+
+#checkbox:checked ~ .styled__checkbox {
+    background-image: url("../images/Icon Check.svg");
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: center;
+}
+
+/*BUTTON SEND
+*/
+.contact__form__inputs .btn.btn__secondary {
+    border: 1px solid rgba(255, 0, 0, 1);
+    padding: 11px 52px 10px;
+    width: max-content;
+    align-self: flex-end;
+}
+
+/*FOOTER
+*/
+
+/*FOOTER BACKGROUND
+ */
+
+.footer {
+    background: rgba(40, 39, 44, 1);
+    width: 100vw;
+    padding: 40px 0 39px;
+}
+
+/*FOOTER LOGO
+ */
+
+.footer__logo {
+    margin-bottom: 22px;
+    display: flex;
+}
+
+.footer__logo__title {
+    font-size: 25px;
+    line-height: 34px;
+    font-weight: 700;
+}
+
+.footer__logo__title span {
+    color: var(--main-color);
+    font-weight: 800;
+    margin: 0 8px 0;
+}
+
+.footer__meny {
+    width: 100%;
+    display: flex;
+}
+
+.footer__list__one {
+    margin-right: 140px;
+}
+
+.footer__list__three {
+    align-self: flex-end;
+    margin-left: 540px;
+}
+
+.footer__meny .text__style {
+    line-height: 19px;
+    font-weight: 700;
+}
+
+.footer__meny a:hover {
+    color: var(--main-color);
+}
+
+.footer__list__three .text__style {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 300;
+    text-transform: capitalize;
+    color: rgba(209, 209, 209, 1);
 }
